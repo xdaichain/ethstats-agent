@@ -1,18 +1,11 @@
-FROM node:8
+FROM node:alpine
 
 WORKDIR /usr/src/app
 
 ENV NODE_ENV production
-ENV RPC_HOST parity
-ENV RPC_PORT 8545
-ENV LISTENING_PORT 30303
-ENV INSTANCE_NAME $RPC_HOST
-ENV WS_SERVER http://dashboard:3000
-ENV WS_SECRET s3cr3t
-ENV VERBOSITY 1
 
 COPY package*.json ./
-RUN npm install
+RUN npm install --production
 
 COPY . .
 
