@@ -4,7 +4,8 @@ WORKDIR /usr/src/app
 
 ENV NODE_ENV production
 
-COPY package*.json ./
+RUN git clone https://github.com/xdaichain/ethstats-agent /usr/src/app
+# COPY package*.json ./
 RUN npm install --production
 
 COPY . .
